@@ -63,7 +63,7 @@ fi
 if [[ "${SERVER_GAME_LOG}" == "true" ]]; then
   args=('--arkopt,-servergamelog' "${args[@]}")
 fi
-if [[ "${SERVER_GAME_LOG}" == "true" ]]; then
+if [[ "${SERVER_GAME_LOG_INCLUDE_TRIBE_LOGS}" == "true" ]]; then
   args=('--arkopt,-servergamelogincludetribelogs' "${args[@]}")
 fi
 if [[ "${DISABLE_BATTLEYE}" == "true" ]]; then
