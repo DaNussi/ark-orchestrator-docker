@@ -1,6 +1,6 @@
 FROM        cm2network/steamcmd:root
 
-LABEL       MAINTAINER="https://github.com/Hermsi1337/"
+LABEL       MAINTAINER="https://github.com/afinegan/"
 
 ARG         ARK_TOOLS_VERSION="1.6.61a"
 ARG         IMAGE_VERSION="dev"
@@ -28,7 +28,7 @@ ENV         IMAGE_VERSION="${IMAGE_VERSION}" \
             STEAM_LOGIN="anonymous" \
             CLUSTER_ID="" \
             CLUSTER_DIR_OVERRIDE="" \
-            MINIMUM_TIME_BETWEEN_INVENTORY_RETRIEVAL="3600" \
+            MINIMUM_TIME_BETWEEN_INVENTORY_RETRIEVAL="3600"
 
 ENV         ARK_TOOLS_DIR="${ARK_SERVER_VOLUME}/arkmanager"
 

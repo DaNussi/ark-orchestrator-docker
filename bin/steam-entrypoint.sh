@@ -46,7 +46,7 @@ if [[ -n "${CLUSTER_ID}" ]]; then
   args=("--arkopt,-clusterid=${CLUSTER_ID}" "${args[@]}")
 fi
 if [[ -n "${CLUSTER_DIR_OVERRIDE}" ]]; then
-  args=("--arkopt,-ClusterDirOverride=${TEMPLATE_DIRECTORY}/${CLUSTER_DIR_OVERRIDE}" "${args[@]}")
+  args=("--arkopt,-ClusterDirOverride=${CLUSTER_DIR_OVERRIDE}" "${args[@]}")
 fi
 if [[ "${ENABLE_CROSSPLAY}" == "true" ]]; then
   args=('--arkopt,-crossplay' "${args[@]}")
