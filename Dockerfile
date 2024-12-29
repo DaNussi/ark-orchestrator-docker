@@ -1,12 +1,12 @@
 FROM        cm2network/steamcmd:root
 
-LABEL       MAINTAINER="https://github.com/Hermsi1337/"
+LABEL       MAINTAINER="https://github.com/afinegan/"
 
 ARG         ARK_TOOLS_VERSION="1.6.61a"
 ARG         IMAGE_VERSION="dev"
 
 ENV         IMAGE_VERSION="${IMAGE_VERSION}" \
-            SESSION_NAME="Dockerized ARK Server by github.com/hermsi1337" \
+            SESSION_NAME="ChangeSessionName12345" \
             SERVER_MAP="TheIsland" \
             SERVER_PASSWORD="YouShallNotPass" \
             ADMIN_PASSWORD="Th155houldD3f1n3tlyB3Chang3d" \
@@ -25,7 +25,10 @@ ENV         IMAGE_VERSION="${IMAGE_VERSION}" \
             SERVER_LIST_PORT="27015" \
             STEAM_HOME="/home/${USER}" \
             STEAM_USER="${USER}" \
-            STEAM_LOGIN="anonymous"
+            STEAM_LOGIN="anonymous" \
+            CLUSTER_ID="" \
+            CLUSTER_DIR_OVERRIDE="" \
+            MINIMUM_TIME_BETWEEN_INVENTORY_RETRIEVAL="3600"
 
 ENV         ARK_TOOLS_DIR="${ARK_SERVER_VOLUME}/arkmanager"
 

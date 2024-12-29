@@ -42,8 +42,29 @@ function copy_missing_file() {
 }
 
 args=("$*")
+if [[ -n "${CLUSTER_ID}" ]]; then
+  args=("--arkopt,-clusterid=${CLUSTER_ID}" "${args[@]}")
+fi
+if [[ -n "${CLUSTER_DIR_OVERRIDE}" ]]; then
+  args=("--arkopt,-ClusterDirOverride=${CLUSTER_DIR_OVERRIDE}" "${args[@]}")
+fi
 if [[ "${ENABLE_CROSSPLAY}" == "true" ]]; then
   args=('--arkopt,-crossplay' "${args[@]}")
+fi
+if [[ "${ENABLE_NO_TRANSFER_FROM_FILTERING}" == "true" ]]; then
+  args=('--arkopt,-NoTransferFromFiltering' "${args[@]}")
+fi
+if [[ "${ENABLE_PLAYER_KICK}" == "true" ]]; then
+  args=('--arkopt,-EnableIdlePlayerKick' "${args[@]}")
+fi
+if [[ -n "${MINIMUM_TIME_BETWEEN_INVENTORY_RETRIEVAL}" ]]; then
+  args=("--arkopt,-MinimumTimeBetweenInventoryRetrieval=${MINIMUM_TIME_BETWEEN_INVENTORY_RETRIEVAL}" "${args[@]}")
+fi
+if [[ "${SERVER_GAME_LOG}" == "true" ]]; then
+  args=('--arkopt,-servergamelog' "${args[@]}")
+fi
+if [[ "${SERVER_GAME_LOG_INCLUDE_TRIBE_LOGS}" == "true" ]]; then
+  args=('--arkopt,-servergamelogincludetribelogs' "${args[@]}")
 fi
 if [[ "${DISABLE_BATTLEYE}" == "true" ]]; then
   args=('--arkopt,-NoBattlEye' "${args[@]}")
