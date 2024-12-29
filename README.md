@@ -45,7 +45,7 @@ The basic configuration of your server is done by using environment variables wh
 | SERVER_LIST_PORT | 27015 | Exposed server-list port |
 | GAME_MOD_IDS | `empty` |  Additional game-mods you want to install, seperated by comma. (e.g. GAME_MOD_IDS=487516323,487516324,487516325) |
 | DISCORD_WEBHOOK | '' | Used to broadcast the server status |
-| ARK_CLUSTER_ID | '' | Used to connect multible servers together |
+| CLUSTER_ID | '' | Used to connect multible servers together |
 | CLUSTER_DIR_OVERRIDE | '' | Used to override the cluster shared directory |
 | ENABLE_NO_TRANSFER_FROM_FILTERING | '' | Used to disable transfer from filterring |
 | ENABLE_PLAYER_KICK | '' | Enable / Disable player kick |
