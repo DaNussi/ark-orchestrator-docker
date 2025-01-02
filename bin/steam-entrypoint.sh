@@ -57,9 +57,6 @@ fi
 if [[ "${ENABLE_PLAYER_KICK}" == "true" ]]; then
   args=('--arkopt,-EnableIdlePlayerKick' "${args[@]}")
 fi
-if [[ -n "${MINIMUM_TIME_BETWEEN_INVENTORY_RETRIEVAL}" ]]; then
-  args=("--arkopt,-MinimumTimeBetweenInventoryRetrieval=${MINIMUM_TIME_BETWEEN_INVENTORY_RETRIEVAL}" "${args[@]}")
-fi
 if [[ "${SERVER_GAME_LOG}" == "true" ]]; then
   args=('--arkopt,-servergamelog' "${args[@]}")
 fi

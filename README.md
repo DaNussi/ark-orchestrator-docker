@@ -49,7 +49,6 @@ The basic configuration of your server is done by using environment variables wh
 | CLUSTER_DIR_OVERRIDE | '' | Used to override the cluster shared directory |
 | ENABLE_NO_TRANSFER_FROM_FILTERING | '' | Used to disable transfer from filterring |
 | ENABLE_PLAYER_KICK | '' | Enable / Disable player kick |
-| MINIMUM_TIME_BETWEEN_INVENTORY_RETRIEVAL | 3600 | sets the minimum time for inventory retrival |
 | SERVER_GAME_LOG | true | enables game logs |
 #### Get things runnning
 

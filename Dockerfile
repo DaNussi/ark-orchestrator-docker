@@ -28,7 +28,6 @@ ENV         IMAGE_VERSION="${IMAGE_VERSION}" \
             STEAM_LOGIN="anonymous" \
             CLUSTER_ID="" \
             CLUSTER_DIR_OVERRIDE="" \
-            MINIMUM_TIME_BETWEEN_INVENTORY_RETRIEVAL="3600" \
             ENABLE_PLAYER_KICK="false" \
             ENABLE_NO_TRANSFER_FROM_FILTERING="false" \
             DISCORD_WEBHOOK="" \
