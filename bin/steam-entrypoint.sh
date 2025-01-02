@@ -96,6 +96,15 @@ copy_missing_file "${TEMPLATE_DIRECTORY}/crontab" "${ARK_SERVER_VOLUME}/crontab"
 [[ -L "${ARK_SERVER_VOLUME}/GameUserSettings.ini" ]] ||
   ln -s ./server/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini GameUserSettings.ini
 
+if [[ -f "${ARK_SERVER_VOLUME}/Game.ini.append" ]]; then
+  echo "Appending contents of Game.ini.append to Game.ini..."
+  cat "${ARK_SERVER_VOLUME}/Game.ini.append" >> "${ARK_SERVER_VOLUME}/Game.ini"
+fi
+if [[ -f "${ARK_SERVER_VOLUME}/GameUserSettings.ini.append" ]]; then
+  echo "Appending contents of GameUserSettings.ini.append to GameUserSettings.ini..."
+  cat "${ARK_SERVER_VOLUME}/GameUserSettings.ini.append" >> "${ARK_SERVER_VOLUME}/GameUserSettings.ini"
+fi
+
 if [[ ! -d ${ARK_SERVER_VOLUME}/server ]] || [[ ! -f ${ARK_SERVER_VOLUME}/server/version.txt ]]; then
   echo "No game files found. Installing..."
 
