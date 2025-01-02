@@ -1,3 +1,10 @@
+FROM maven:3.9.9-amazoncorretto-17-debian AS java
+
+WORKDIR /app
+COPY java /app
+
+RUN mvn clean compile assembly:single
+
 FROM        cm2network/steamcmd:root
 
 LABEL       MAINTAINER="https://github.com/afinegan/"
@@ -46,6 +53,7 @@ RUN         set -x && \
                                 bzip2 \
                                 gosu \
                                 cron \
+                                openjdk-17-jre \
             && \
             curl -L "https://github.com/arkmanager/ark-server-tools/archive/v${ARK_TOOLS_VERSION}.tar.gz" \
                 | tar -xvzf - -C /tmp/ && \
@@ -56,6 +64,10 @@ RUN         set -x && \
             apt-get -qq autoclean && apt-get -qq autoremove && apt-get -qq clean && \
             rm -rf /tmp/* /var/cache/*
 
+
+COPY --from=java /app/target/entrypoint-jar-with-dependencies.jar /entrypoint.jar
+RUN chmod 777 /entrypoint.jar
+
 COPY        bin/    /
 COPY        conf.d  ${TEMPLATE_DIRECTORY}
 
@@ -64,5 +76,5 @@ EXPOSE      ${GAME_CLIENT_PORT}/udp ${UDP_SOCKET_PORT}/udp ${SERVER_LIST_PORT}/u
 VOLUME      ["${ARK_SERVER_VOLUME}"]
 WORKDIR     ${ARK_SERVER_VOLUME}
 
-ENTRYPOINT  ["/docker-entrypoint.sh"]
-CMD         []
+ENTRYPOINT [ "/bin/bash", "-c"]
+CMD  ["java","-jar","/entrypoint.jar"]
